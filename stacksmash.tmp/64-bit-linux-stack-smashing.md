@@ -1,0 +1,1 @@
+This repository contains the vulnerable binaries used in the 64-bit Linux Stack Smashing tutorials found at [http://blog.techorganic.com/search.html?query=64-bit+Linux+Stack+Smashing](http://blog.techorganic.com/search.html?query=64-bit+Linux+Stack+Smashing)
