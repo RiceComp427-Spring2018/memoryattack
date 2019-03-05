@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
  metasploit-framework \
  nasm \
  python \
+ python-pip \
  vim
 # nmap \
 # sqlmap \
@@ -36,6 +37,20 @@ RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 # Other installs
 #RUN pip install pwntools
 
+# Setup ROPPER
+RUN git clone https://github.com/sashs/Ropper.git /opt/ropper
+RUN pip install capstone filebytes keystone-engine
+RUN cd /opt/ropper && python setup.py install
+
+
+# Update ENV
+#ENV PATH=$PATH:/opt/powersploit
+
+# Set entrypoint and working directory
+WORKDIR /427hax/
+
+# Copy the contents of this dir to the working dir
+
 # Update ENV
 #ENV PATH=$PATH:/opt/powersploit
 
@@ -44,6 +59,8 @@ WORKDIR /427hax/
 
 # Copy the contents of this dir to the working dir
 COPY . /427hax/
+
+RUN cd stacksmash && make
 
 # Source the peda gdb stubs
 RUN echo "source /427hax/peda/peda.py" >> ~/.gdbinit

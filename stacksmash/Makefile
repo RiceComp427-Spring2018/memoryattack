@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: classic classic_nx classic_canary
+all: classic classic_nx classic_canary ret2libc leak
 
 classic: classic.c
 	gcc -fno-stack-protector -z execstack $< -o $@
@@ -12,6 +12,14 @@ classic_nx: classic.c
 
 classic_canary: classic.c
 	gcc -fstack-protector -z execstack $< -o $@
+	objdump -S $@ > $@.obj
+
+ret2libc: ret2libc.c
+	gcc -fno-stack-protector -no-pie $< -o $@
+	objdump -S $@ > $@.obj
+
+leak: leak.c
+	gcc -fno-stack-protector -no-pie $< -o $@
 	objdump -S $@ > $@.obj
 
 clean:

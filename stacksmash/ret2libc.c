@@ -14,6 +14,8 @@ int vuln() {
 }
 
 int main(int argc, char *argv[]) {
+    setuid(0);
+    seteuid(0);
     printf("Try to exec /bin/sh");
     vuln();
     return 0;
