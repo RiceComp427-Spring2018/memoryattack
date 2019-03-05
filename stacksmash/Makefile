@@ -23,4 +23,4 @@ leak: leak.c
 	objdump -S $@ > $@.obj
 
 clean:
-	-rm classic classic_nx classic_canary *.obj
+	-rm classic classic_nx classic_canary ret2libc leak *.obj
