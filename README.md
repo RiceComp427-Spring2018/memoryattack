@@ -68,3 +68,25 @@ are generated.
 I went through the sequence of operations as indicated in
 [lecture](./lecture.md). This is somewhat a follow along with the blog post and
 may be of interest.
+
+## Useful Background
+
+### X86-64 Calling Convenctions
+
+From [stack
+overlow](https://stackoverflow.com/questions/28601414/calling-c-function-from-x64-assembly-with-registers-instead-of-stack):
+
+> Passing arguments to variadic functions is more
+> complicated. See x86-64 ELF ABI, section 3.5.7. Otherwise,
+> x86-64 passes its first 6 arguments using registers: %rdi,
+> %rsi, %rdx, %rcx, %r8, %r9 (excluding float / vector
+> arguments).
+
+> From the specification, %rax = 0 means that the variable
+> argument list has no (0) floating-point arguments passed in
+> vector registers. Your approach is wrong, as the first
+> argument (e.g., the nul-terminated string: "Hello\n") must
+> be passed in %rdi, and %rax must be zero when the function
+> is called.
+
+
