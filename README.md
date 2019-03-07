@@ -3,11 +3,15 @@
 ## Intro
 
 I followed the tutorial
-[here]https://blog.techorganic.com/2015/04/10/64-bit-linux-stack-smashing-tutorial-part-1/).
-The code for that is [stacksmash](./stacksmash). Associated tools and utilities
-have been added to this repo and will be put into the image once it is built
-with the docker build command. The one thing that is dynamic is the location of
-the ENV variable for the attack. 
+[Part
+1](https://blog.techorganic.com/2015/04/10/64-bit-linux-stack-smashing-tutorial-part-1/),[Part
+2](https://blog.techorganic.com/2015/04/21/64-bit-linux-stack-smashing-tutorial-part-2/), and [Part
+3](https://blog.techorganic.com/2016/03/18/64-bit-linux-stack-smashing-tutorial-part-3/)
+The code for that is [stacksmash](./stacksmash). Associated
+tools and utilities have been added to this repo and will be
+put into the image once it is built with the docker build
+command. The one thing that is dynamic is the location of
+the ENV variable for the attack.
 
 ## Build Container
 
